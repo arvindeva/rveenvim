@@ -21,6 +21,13 @@ return {
       transparent = true,
     },
   },
+  {
+    "catppuccin",
+    opts = {
+      transparent_background = true,
+      contrast = true,
+    },
+  },
   --} Configure LazyVim to load gruvbox
   {
     "LazyVim/LazyVim",
