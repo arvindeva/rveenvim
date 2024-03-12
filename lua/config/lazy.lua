@@ -5,6 +5,10 @@ if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
+vim.opt.timeoutlen = 1000
+vim.opt.ttimeoutlen = 0
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#FFFFFF" })
+vim.g.transparent_groups = vim.list_extend(vim.g.transparent_groups or {}, { "ExtraGroup" })
 
 require("lazy").setup({
   spec = {
@@ -33,6 +37,7 @@ require("lazy").setup({
       vim.cmd("highlight TelescopeBorder guibg=none")
       vim.cmd("highlight NeotreeNormal guibg=none")
       vim.cmd("highlight NeotreeNormalNC guibg=none")
+      vim.cmd("highlight NormalFloat guibg=none")
     end,
   }),
   checker = { enabled = true }, -- automatically check for plugin updates
